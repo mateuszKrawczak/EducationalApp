@@ -1,0 +1,31 @@
+<section>
+    <div class="col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+        <p>Logowanie</p>
+        <form (submit)="login($event)" [formGroup]="loginForm">
+            <figure>
+                <img src="../../../images/lemon.png">
+            </figure>
+            <div class="input-box">
+                <label for="login">Login :</label>
+                <input formControlName="login" type="text" name="login" id="login">
+            </div>
+            <div class="warning-box">
+                <ng-container *ngIf="loginForm.get('login').touched && loginForm.get('login').invalid">
+                    <span class="warning" *ngIf="loginForm.get('login').errors.required">Login nie może być pusty</span>
+                </ng-container>
+            </div>
+            <div class="input-box">
+                <label for="password">Hasło :</label>
+                <input formControlName="password" type="password" name="password" id="password">
+            </div>
+            <div class="warning-box">
+                <ng-container *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid">
+                    <span class="warning" *ngIf="loginForm.get('password').errors.required">Hasło nie może być puste</span>
+                </ng-container>
+            </div>
+            <div class="button-box">
+                <button [disabled]="!loginForm.valid" type="submit">Zaloguj</button>
+            </div>
+        </form>
+    </div>
+</section>
