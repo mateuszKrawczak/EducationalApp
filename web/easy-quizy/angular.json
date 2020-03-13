@@ -5,7 +5,11 @@
   "projects": {
     "easy-quizy": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -131,7 +135,7 @@
   },
   "defaultProject": "easy-quizy",
   "schematics": {
-    "@schematics/angular:component": {
+    "@nrwl/schematics:component": {
       "styleext": "scss"
     }
   }
