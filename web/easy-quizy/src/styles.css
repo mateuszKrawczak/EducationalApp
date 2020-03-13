@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster|Roboto&display=swap');
+body{
+    background-image: url('https://cdn.pixabay.com/photo/2016/02/11/14/59/fruits-1193727_1280.png');
+    background-size:cover; 
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: center;
+    min-height:500px
+}
+html{
+    height:auto;
+}
