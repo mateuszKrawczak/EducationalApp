@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 .navbar{
     
    color:black;
@@ -37,12 +39,7 @@
 }
 .nav-item:hover{
     cursor:pointer;
-
-    background-color: #fefe22;
-    /*
-    border:1px solid #fefe22;
-    
-    transform: scale(1.15);*/
+    background-color: $yellow;
 }
 .navbar-light .navbar-nav .nav-link{
     color:black;

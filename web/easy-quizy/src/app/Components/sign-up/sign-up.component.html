@@ -30,6 +30,7 @@
             <div class="warning-box">
                 <ng-container *ngIf="signUpForm.get('email').touched && signUpForm.get('email').invalid">
                     <span class="warning" *ngIf="signUpForm.get('email').errors.required">Email nie może być pusty</span>
+                    <span class="warning" *ngIf="signUpForm.get('email').errors.pattern">Email nie jest poprawny</span>
                 </ng-container>
             </div>
             <div class="input-box">
@@ -48,6 +49,7 @@
             <div class="warning-box">
                 <ng-container *ngIf="signUpForm.get('password').touched && signUpForm.get('password').invalid">
                     <span class="warning" *ngIf="signUpForm.get('password').errors.required">Hasło nie może być puste</span>
+                    <span class="warning" *ngIf="signUpForm.get('password').errors.pattern">Hasło musi zawierać litery i cyfry oraz posiadać od 6 do 40 znaków</span>
                 </ng-container>
             </div>
             <div class="button-box">

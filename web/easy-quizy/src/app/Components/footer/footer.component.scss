@@ -1,6 +1,8 @@
+@import '../../../styles.scss';
+
 
 .page-footer{
-background-color:#f8f9fa;
+background-color:$lightBackground;
 border-top:1px solid black;
 bottom:0vh;
 width: 100%;
