@@ -38,6 +38,21 @@
     font-family: 'Roboto', cursive;
     font-size:20px;
     font-weight: bold;
+    
+    }
+.text-description {
+    animation:descriptionSlideAnimation 1s 0s forwards;
+
+}
+@keyframes descriptionSlideAnimation{
+    from{
+        margin-left:-100%;
+        width:100%;
+    }
+    to{
+        margin-left:0%;
+        width:100%;
+    }
 }
 .easy-peasy-photo{
     margin:auto;
@@ -58,9 +73,15 @@
     
     font-family:'Roboto', cursive;
     font-size:28px;
+    opacity: 0;
+    animation: buttonDelayAnimation 2s 2s forwards;
 }
 .btn:hover{
 
     
     background-color: #ffffaa;
 }
+
+@keyframes buttonDelayAnimation {
+    to   { opacity: 1; }
+  }

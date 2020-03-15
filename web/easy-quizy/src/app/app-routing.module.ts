@@ -4,13 +4,14 @@ import { MainContentComponent } from './Components/main-content/main-content.com
 import { SignUpComponent } from './Components/sign-up/sign-up.component';
 import { AccountMainComponent } from './Components/account/account-main/account-main.component';
 import { LoginComponent } from './Components/login/login.component';
-
+import { CategoriesComponent } from './Components/categories/categories.component';
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch:'full'},
   {path: 'home', component: MainContentComponent},
   {path: 'signUp', component: SignUpComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'account', component: AccountMainComponent}
+  {path: 'account', component: AccountMainComponent},
+  {path: 'api/categories', component: CategoriesComponent},
 ];
 
 @NgModule({

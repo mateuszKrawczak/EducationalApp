@@ -14,6 +14,7 @@ import { MainContentComponent } from './Components/main-content/main-content.com
 import { SignUpComponent } from './Components/sign-up/sign-up.component';
 import { AccountMainComponent } from './Components/account/account-main/account-main.component';
 import { LoginComponent } from './Components/login/login.component';
+import { CategoriesComponent } from './Components/categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LoginComponent } from './Components/login/login.component';
     MainContentComponent,
     SignUpComponent,
     AccountMainComponent,
-    LoginComponent
+    LoginComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
