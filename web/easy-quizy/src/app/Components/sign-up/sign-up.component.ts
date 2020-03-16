@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EventManager } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/Services/authService';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,17 +15,16 @@ export class SignUpComponent implements OnInit {
   signUpForm :FormGroup;
 
   constructor(private formBuilder: FormBuilder, private router:Router,
-    private toastrService:ToastrService) { }
+    private toastrService:ToastrService, private authService:AuthService) { }
 
   ngOnInit(): void {
 
-    const emailPattern = '^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,6}$';
     const passwordPattern = '^(?=.*[0-9])(?=.*[a-z]).{6,40}$';
 
     this.signUpForm =this.formBuilder.group( {
-      firstName: [null,Validators.required],
-      lastName: [null,Validators.required],
-      email: [null, [Validators.required, Validators.pattern(emailPattern)]],
+      first_name: [null,Validators.required],
+      last_name: [null,Validators.required],
+      email: [null, [Validators.required, Validators.email]],
       login: [null,Validators.required],
       password: [null, [Validators.required, Validators.pattern(passwordPattern)]]
     });
@@ -33,7 +33,11 @@ export class SignUpComponent implements OnInit {
 
   signUp(event){
     event.preventDefault();
-    this.router.navigate(['/login']);
-    this.toastrService.success('trzeba dodać prawdziwą rejestrację do bazy');
+    this.authService.register(this.signUpForm.value).subscribe(data => {
+      this.router.navigate(['/login']);
+      this.toastrService.success('Konto zostało utworzone', 'Super!');
+    }, error => {
+      this.toastrService.success('Coś poszło nie tak', 'Ups :/');
+    })
   }
 }
