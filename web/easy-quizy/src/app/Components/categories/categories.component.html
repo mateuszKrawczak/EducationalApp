@@ -2,7 +2,7 @@
 <article>
   <section class="d-flex container-fluid col-lg-10 offset-lg-1 flex-column flex-md-row flex-wrap">
     <ng-container *ngFor="let elem of categories">
-      <app-category-view class="container col-lg-4 col-md-6" [category]="elem"></app-category-view>
+      <app-category-view class="container col-lg-4 col-md-6" [category]="elem" (click)="redirectingToLevels(elem.name)"></app-category-view>
     </ng-container>
   </section>
 </article>

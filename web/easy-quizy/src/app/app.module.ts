@@ -16,6 +16,7 @@ import { AccountMainComponent } from './Components/account/account-main/account-
 import { LoginComponent } from './Components/login/login.component';
 import { CategoriesComponent } from './Components/categories/categories.component';
 import { CategoryViewComponent } from './Components/category-view/category-view.component';
+import { CategoryLevelsComponent } from './Components/category-levels/category-levels.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CategoryViewComponent } from './Components/category-view/category-view.
     AccountMainComponent,
     LoginComponent,
     CategoriesComponent,
-    CategoryViewComponent
+    CategoryViewComponent,
+    CategoryLevelsComponent
   ],
   imports: [
     BrowserModule,
