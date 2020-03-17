@@ -6,10 +6,13 @@ import { Observable } from "rxjs";
 @Component({
   selector: "app-question",
   templateUrl: "./question.component.html",
-  styleUrls: ["./question.component.css"]
+  styleUrls: ["./question.component.scss"]
 })
 export class QuestionComponent implements OnInit {
+  
   questions: Array<Question>;
+  currentQuestion: Question;
+  currentIndex = 0;
 
   constructor(
     private questionService: QuestionService,
@@ -19,10 +22,14 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit(): void {
     let categoryName = this.activatedRoute.snapshot.url[0];
+    let level = this.activatedRoute.snapshot.url[1];
 
-    this.questionService.getQuestions(categoryName).subscribe(questions => {
+    this.questionService.getQuestions(categoryName, level).subscribe(questions => {
       this.questions = questions;
+      console.log(this.questions);
+      this.currentQuestion = this.questions[this.currentIndex];
     },e =>{console.error(e)});
-    console.log(this.questions);
+    
   }
+
 }

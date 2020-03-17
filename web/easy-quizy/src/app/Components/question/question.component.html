@@ -1,1 +1,13 @@
-<p>question works!</p>
+<section>
+    <!--Sprawdzalem tylko czy dziala-->
+    <ng-container *ngIf="currentQuestion">
+        <p>{{currentQuestion.question}}</p>
+        <p>{{currentQuestion.answer_0}}</p>
+        <p>{{currentQuestion.answer_1}}</p>
+        <p>{{currentQuestion.answer_2}}</p>
+        <p>{{currentQuestion.answer_3}}</p>
+        <p>{{currentQuestion.level.name}}</p>
+        <p>{{currentQuestion.level.points}}</p>
+        <p>{{currentQuestion.category.name}}</p>
+    </ng-container>
+</section>

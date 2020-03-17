@@ -1,3 +1,6 @@
+import { Category } from './category';
+import { Level } from './level';
+
 export interface Question {
     question_id: string,
     question: string,
@@ -6,6 +9,6 @@ export interface Question {
     answer_2: string,
     answer_3: string,
     correct: number,
-    category_id: string,
-    level_id: string
+    category: Category,
+    level: Level
 }

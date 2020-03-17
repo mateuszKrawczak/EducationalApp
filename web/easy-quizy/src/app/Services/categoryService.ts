@@ -5,14 +5,17 @@ import { Category } from "../Models/category";
 import { environment } from "src/environments/environment";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
+
 export class CategoryService {
+
   host: string = environment.host;
 
   constructor(private http: HttpClient) {}
 
   getCategories(): Observable<Array<Category>> {
-    return this.http.get<Array<Category>>(this.host + "api/categories");
+    return this.http.get<Array<Category>>(this.host + 'api/categories');
   }
+
 }

@@ -10,13 +10,11 @@ export class QuestionService {
 
   host:string = environment.host;
 
-
   constructor(private http:HttpClient) { }
 
-
-  getQuestions(categoryName):Observable<Array<Question>> {
-    
-    return this.http.get<Array<Question>>(this.host + `api/questions?category=${categoryName}`);
-}
+  getQuestions(categoryName, level):Observable<Array<Question>> {
+    return this.http.get<Array<Question>>(this.host 
+      + `api/questions?category=${categoryName}&level=${level}`);
+  }
   
 }
