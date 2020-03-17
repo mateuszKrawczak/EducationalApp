@@ -4,7 +4,7 @@
     class="d-flex container-fluid col-lg-10 offset-lg-1 flex-column flex-md-row flex-wrap" 
   >
   <ng-container  *ngFor="let level of levels">
-<app-category-levels-view class="container col-lg-4 col-md-6"[level]="level"></app-category-levels-view>
+<app-category-levels-view class="container col-lg-4 col-md-6"[level]="level" routerLink="../{{level.name}}"></app-category-levels-view>
 </ng-container>
   </div>
 </article>

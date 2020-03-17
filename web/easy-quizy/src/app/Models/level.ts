@@ -1,3 +1,5 @@
 export interface Level {
-    name: string;
+    level_id: string,
+    name: string,
+    points:number
 }

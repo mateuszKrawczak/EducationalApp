@@ -18,6 +18,7 @@ import { CategoriesComponent } from './Components/categories/categories.componen
 import { CategoryViewComponent } from './Components/category-view/category-view.component';
 import { CategoryLevelsComponent } from './Components/category-levels/category-levels.component';
 import { CategoryLevelsViewComponent } from './Components/category-levels-view/category-levels-view.component';
+import { QuestionComponent } from './Components/question/question.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CategoryLevelsViewComponent } from './Components/category-levels-view/c
     CategoriesComponent,
     CategoryViewComponent,
     CategoryLevelsComponent,
-    CategoryLevelsViewComponent
+    CategoryLevelsViewComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,

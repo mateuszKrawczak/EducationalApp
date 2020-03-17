@@ -6,6 +6,7 @@ import { AccountMainComponent } from './Components/account/account-main/account-
 import { LoginComponent } from './Components/login/login.component';
 import { CategoriesComponent } from './Components/categories/categories.component';
 import { CategoryLevelsComponent } from './Components/category-levels/category-levels.component';
+import { QuestionComponent } from './Components/question/question.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch:'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'account', component: AccountMainComponent},
   {path: 'categories', component: CategoriesComponent},
   {path: ':kategoria/poziomy', component: CategoryLevelsComponent}, 
+  {path: ':kategoria/:poziom', component: QuestionComponent}, 
   
 ];
 
