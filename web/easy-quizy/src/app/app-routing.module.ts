@@ -7,16 +7,17 @@ import { LoginComponent } from './Components/login/login.component';
 import { CategoriesComponent } from './Components/categories/categories.component';
 import { CategoryLevelsComponent } from './Components/category-levels/category-levels.component';
 import { QuestionComponent } from './Components/question/question.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch:'full'},
   {path: 'home', component: MainContentComponent},
   {path: 'signUp', component: SignUpComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'account', component: AccountMainComponent},
-  {path: 'categories', component: CategoriesComponent},
-  {path: ':kategoria/poziomy', component: CategoryLevelsComponent}, 
-  {path: ':kategoria/:poziom', component: QuestionComponent}, 
+  {path: 'account', component: AccountMainComponent,canActivate:[AuthGuard]},
+  {path: 'categories', component: CategoriesComponent,canActivate:[AuthGuard]},
+  {path: ':kategoria/poziomy', component: CategoryLevelsComponent,canActivate:[AuthGuard]}, 
+  {path: ':kategoria/:poziom', component: QuestionComponent,canActivate:[AuthGuard]}, 
   
 ];
 

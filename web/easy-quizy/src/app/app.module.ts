@@ -19,6 +19,7 @@ import { CategoryViewComponent } from './Components/category-view/category-view.
 import { CategoryLevelsComponent } from './Components/category-levels/category-levels.component';
 import { CategoryLevelsViewComponent } from './Components/category-levels-view/category-levels-view.component';
 import { QuestionComponent } from './Components/question/question.component';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { QuestionComponent } from './Components/question/question.component';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

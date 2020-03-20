@@ -12,7 +12,7 @@ import { User } from '../Models/user';
 export class AuthService {
 
     host = environment.host;
-
+    logged :boolean = false;
     constructor(private http: HttpClient) {}
 
     login(login: string, password: string): Observable<Log> {
@@ -29,4 +29,7 @@ export class AuthService {
         })
     }
 
+    isLoggedIn(){
+        return this.logged;
+    }
 }
