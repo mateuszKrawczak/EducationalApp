@@ -1,13 +1,19 @@
-<section>
-    <!--Sprawdzalem tylko czy dziala-->
+<section class="container">
     <ng-container *ngIf="currentQuestion">
-        <p>{{currentQuestion.question}}</p>
-        <p>{{currentQuestion.answer_0}}</p>
-        <p>{{currentQuestion.answer_1}}</p>
-        <p>{{currentQuestion.answer_2}}</p>
-        <p>{{currentQuestion.answer_3}}</p>
-        <p>{{currentQuestion.level.name}}</p>
-        <p>{{currentQuestion.level.points}}</p>
-        <p>{{currentQuestion.category.name}}</p>
+        <div class="row justify-content-center">
+            <div class="question col-md-11">
+                <p>{{currentQuestion.question}}</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <ng-container *ngFor="let answer of answers; let i = index">
+                <div (click)="select(i)" [ngClass]="getAnswerClass(i)" class="answer col-md-5">
+                    {{ answer }}
+                </div>
+            </ng-container>
+        </div>
+        <div class="btn-box">
+            <button (click)="check()" class="btnCheck">{{buttonLabel}}</button>
+        </div>
     </ng-container>
 </section>

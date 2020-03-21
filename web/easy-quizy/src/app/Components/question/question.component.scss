@@ -1,0 +1,79 @@
+@import '../../../styles.scss';
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: rgba(243, 246, 247, 0.6);
+    border-radius: 2em;
+    padding: 2em 1em;
+    animation: fade;
+    animation-duration: 1s;
+}
+
+.question, .answer {
+    padding: 24px;
+    margin: 16px;
+    text-align: center;
+    border-radius: 10px;
+    color: $text;
+    font-size: 20px;
+    animation: fade;
+    animation-duration: 2s;
+}
+
+.question {
+    background-color: $question;
+}
+
+.answer {
+    background-color: $answer;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.answer:hover {
+    transform: scale(1.05);
+}
+
+.selected {
+    background-color: $selected;
+}
+
+.good {
+    background-color: $green;
+}
+
+.wrong {
+    background-color: $red;
+}
+
+.btn-box {
+    text-align: center;
+}
+
+.btnCheck {
+    border-radius: 10px;
+    border:2px solid black;
+    color:black;
+    background-color: $yellow; 
+    padding: 16px;
+    margin: 1em;
+    font-size: 20px;
+    font-family:'Roboto', cursive;
+}
+
+button:hover {
+    background-color: $yellowHover;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
