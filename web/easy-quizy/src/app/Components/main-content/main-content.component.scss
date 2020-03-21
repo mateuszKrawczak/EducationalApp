@@ -44,6 +44,21 @@
     animation:descriptionSlideAnimation 1s 0s forwards;
 
 }
+
+img {
+    animation: rotation;
+    animation-duration: 2s;
+}
+
+@keyframes rotation {
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
+
 @keyframes descriptionSlideAnimation{
     from{
         margin-left:-100%;
