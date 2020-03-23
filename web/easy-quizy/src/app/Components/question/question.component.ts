@@ -24,7 +24,7 @@ export class QuestionComponent implements OnInit {
   good: number = -1;
   wrong: number = -1;
 
-  questionsLeft: number = 1; // tutaj ustawimy potem ile pytań na rundę
+  questionsLeft: number = 5; // tutaj ustawimy potem ile pytań na rundę
   nextRound: boolean = false;
   buttonLabel: string = "Sprawdz!";
 
@@ -95,7 +95,7 @@ export class QuestionComponent implements OnInit {
       this.buttonLabel = "Sprawdź !";
       this.nextRound = false;
       this.questionsLeft--;
-      if(this.questionsLeft > 0) {
+      if(this.questionsLeft > 0 && this.questions.length > this.currentIndex-1) {
         this.currentQuestion = this.questions[++this.currentIndex];
         this.clearAnswers();
         this.setAnswers();

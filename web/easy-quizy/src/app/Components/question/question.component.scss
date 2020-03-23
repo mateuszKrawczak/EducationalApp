@@ -6,7 +6,7 @@ p {
 }
 
 .container {
-    background-color: rgba(243, 246, 247, 0.6);
+    //background-color: rgba(243, 246, 247, 0.6);
     border-radius: 2em;
     padding: 2em 1em;
     animation: fade;
@@ -22,6 +22,9 @@ p {
     font-size: 20px;
     animation: fade;
     animation-duration: 2s;
+    -webkit-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
 }
 
 .question {
@@ -32,6 +35,7 @@ p {
     background-color: $answer;
     cursor: pointer;
     transition: 0.25s;
+    color: black;
 }
 
 .answer:hover {
@@ -63,10 +67,30 @@ p {
     margin: 1em;
     font-size: 20px;
     font-family:'Roboto', cursive;
+    -webkit-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
 }
 
 button:hover {
     background-color: $yellowHover;
+    animation: move;
+    animation-duration: 0.5s;
+}
+
+@keyframes move {
+    10%{
+        transform: translateX(-1px);
+    }
+    25%{
+        transform: translateX(-3px);
+    }
+    75%{
+        transform: translateX(3px);
+    }
+    90%{
+        transform: translateX(1px);
+    }
 }
 
 @keyframes fade {
