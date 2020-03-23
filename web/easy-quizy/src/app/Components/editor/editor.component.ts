@@ -47,6 +47,7 @@ export class EditorComponent implements OnInit {
     this.questionService.addQuestion(this.addForm.value).subscribe(data => {
       console.log(data);
       this.toastrService.success('Dodano!');
+      this.addForm.reset();
     }, error => {
       this.toastrService.success('Błąd :/');
     })
