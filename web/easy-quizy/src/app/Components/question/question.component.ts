@@ -97,6 +97,8 @@ export class QuestionComponent implements OnInit {
       this.questionsLeft--;
       if(this.questionsLeft > 0) {
         this.currentQuestion = this.questions[++this.currentIndex];
+        this.clearAnswers();
+        this.setAnswers();
       }
       else{
         // tutaj będzie szedł request do bazy zapisaniem wyniku, narazie same logi
