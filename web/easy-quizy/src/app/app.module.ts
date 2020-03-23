@@ -20,6 +20,7 @@ import { CategoryLevelsComponent } from './Components/category-levels/category-l
 import { CategoryLevelsViewComponent } from './Components/category-levels-view/category-levels-view.component';
 import { QuestionComponent } from './Components/question/question.component';
 import { AuthGuard } from './guards/auth.guard';
+import { EditorComponent } from './Components/editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AuthGuard } from './guards/auth.guard';
     CategoryViewComponent,
     CategoryLevelsComponent,
     CategoryLevelsViewComponent,
-    QuestionComponent
+    QuestionComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,

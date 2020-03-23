@@ -8,6 +8,7 @@ import { CategoriesComponent } from './Components/categories/categories.componen
 import { CategoryLevelsComponent } from './Components/category-levels/category-levels.component';
 import { QuestionComponent } from './Components/question/question.component';
 import { AuthGuard } from './guards/auth.guard';
+import { EditorComponent } from './Components/editor/editor.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch:'full'},
@@ -18,7 +19,7 @@ const routes: Routes = [
   {path: 'categories', component: CategoriesComponent,canActivate:[AuthGuard]},
   {path: ':kategoria/poziomy', component: CategoryLevelsComponent,canActivate:[AuthGuard]}, 
   {path: ':kategoria/:poziom', component: QuestionComponent,canActivate:[AuthGuard]}, 
-  
+  {path: 'edytor', component:EditorComponent}
 ];
 
 @NgModule({

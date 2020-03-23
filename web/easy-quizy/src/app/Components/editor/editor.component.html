@@ -1,0 +1,58 @@
+<section class="row">
+    <div class="col-md-6 offset-md-3">
+        <form (submit)="addQuestion($event)" [formGroup]="addForm">
+            <div class="form-group">
+                <label>Pytanie</label>
+                <input class="form-control" type="text" formControlName="question">
+            </div>
+            <div class="form-group">
+                <label>Odpowiedź A</label>
+                <input class="form-control" type="text" formControlName="answer_0">
+            </div>
+            <div class="form-group">
+                <label>Odpowiedź B</label>
+                <input class="form-control" type="text" formControlName="answer_1">
+            </div>
+            <div class="form-group">
+                <label>Odpowiedź C</label>
+                <input class="form-control" type="text" formControlName="answer_2">
+            </div>
+            <div class="form-group">
+                <label>Odpowiedź D</label>
+                <input class="form-control" type="text" formControlName="answer_3">
+            </div>
+            <div class="form-group">
+                <label>Poprawna</label>
+                <select class="form-control" type="number" formControlName="correct">
+                    <option value=0>A</option>
+                    <option value=1>B</option>
+                    <option value=2>C</option>
+                    <option value=3>D</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Kategoria</label>
+                <select class="form-control" type="number" formControlName="category_id">
+                    <ng-container *ngIf="categories">
+                        <ng-container *ngFor="let category of categories">
+                            <option [ngValue]="category.category_id" >{{ category.name }}</option>
+                        </ng-container>
+                    </ng-container>
+                </select>
+            </div>
+            <div class="form-group">  
+                <label>Poziom</label>
+                <select class="form-control" type="number" formControlName="level_id">
+                    <ng-container *ngIf="levels">
+                        <ng-container *ngFor="let level of levels">
+                            <option [ngValue]="level.level_id" >{{ level.name }}</option>
+                        </ng-container>
+                    </ng-container>
+                </select>
+            </div>
+            <div class="form-group button-box">  
+                <button type="submit" [disabled]="!addForm.valid" class="btn btn-primary mb-2">Dodaj</button>
+            </div>
+        </form>
+    </div>
+</section>

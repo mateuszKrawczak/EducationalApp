@@ -1,0 +1,14 @@
+@import '../../../styles.scss';
+
+form {
+    padding: 1em;
+    background-color: $lightBackground;
+}
+
+.button-box {
+    text-align: center;
+}
+
+.btn:disabled {
+    cursor: initial;
+}

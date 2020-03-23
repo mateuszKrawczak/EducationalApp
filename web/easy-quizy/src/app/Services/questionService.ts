@@ -17,4 +17,8 @@ export class QuestionService {
       + `api/questions?category=${categoryName}&level=${level}`);
   }
   
+  addQuestion(question:Question):Observable<any> {
+    return this.http.post(this.host + 'api/questions', question);
+  }
+
 }
