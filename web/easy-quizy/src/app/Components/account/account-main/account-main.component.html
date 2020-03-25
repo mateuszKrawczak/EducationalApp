@@ -1,1 +1,99 @@
-<p>account-main works!</p>
+<section>
+  <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1 account">
+    <div class="title">Statystyki</div>
+      <div class="title">Dane</div>
+    <form (ngSubmit)="changeUserData()" [formGroup]="userForm">
+      
+      <div class="input-box">
+        <label for="firstName">Imię: </label>
+        <input
+          formControlName="first_name"
+          type="text"
+          name="firstName"
+          id="firstName"
+        />
+    </div>
+        <div class="warning-box">
+          <ng-container
+            *ngIf="
+              userForm.get('first_name').touched &&
+              userForm.get('first_name').invalid
+            "
+          >
+            <span
+              class="warning"
+              *ngIf="userForm.get('first_name').errors.required"
+              >Imię nie może być puste</span
+            >
+          </ng-container>
+        
+      </div>
+      <div class="input-box">
+        <label for="lastName"> Nazwisko: </label>
+        <input type="text" name="lastName" formControlName="last_name" />
+      </div>
+      <div class="warning-box">
+        <ng-container
+          *ngIf="
+            userForm.get('last_name').touched &&
+            userForm.get('last_name').invalid
+          "
+        >
+          <span
+            class="warning"
+            *ngIf="userForm.get('last_name').errors.required"
+            >Nazwisko nie może być puste</span
+          >
+        </ng-container>
+      </div>
+
+      <div class="input-box">
+        <label for="login"> Login: </label>
+        <input name="login" type="text" formControlName="login" />
+      </div>
+      <div class="warning-box">
+        <ng-container
+          *ngIf="userForm.get('login').touched && userForm.get('login').invalid"
+        >
+          <span class="warning" *ngIf="userForm.get('login').errors.required"
+            >Login nie może być pusty</span
+          >
+        </ng-container>
+      </div>
+      <div class="input-box">
+        <label for="password"> Hasło: </label>
+        <input name="password" type="text" formControlName="password" />
+      </div>
+      <div class="warning-box">
+        <ng-container
+          *ngIf="
+            userForm.get('password').touched && userForm.get('password').invalid
+          "
+        >
+          <span class="warning" *ngIf="userForm.get('password').errors.required"
+            >Hasło nie może być puste</span
+          >
+        </ng-container>
+      </div>
+      <div class="input-box">
+        <label for="email"> Email: </label>
+        <input name="email" type="text" formControlName="email" />
+      </div>
+      <div class="warning-box">
+        <ng-container
+          *ngIf="userForm.get('email').touched && userForm.get('email').invalid"
+        >
+          <span class="warning" *ngIf="userForm.get('email').errors.required"
+            >Email nie może być pusty</span
+          >
+          <span class="warning" *ngIf="userForm.get('email').errors.email"
+            >Email jest niepoprawny</span
+          >
+        </ng-container>
+      </div>
+      <div class="button-view">
+        <button [disabled]="!userForm.valid" type="submit">Zmień</button>
+      </div>
+    </form>
+  </div>
+</section>
