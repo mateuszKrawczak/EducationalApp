@@ -27,4 +27,9 @@ export class StorageService {
         localStorage.removeItem('userId');
     }
 
+    isLoggedIn(){
+        if(localStorage.getItem('login') && localStorage.getItem('userId')) return true;
+        return false;
+    }
+
 }

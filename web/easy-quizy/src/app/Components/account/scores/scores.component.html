@@ -1,0 +1,9 @@
+<section>
+    <ng-container *ngIf="scores">
+        <div class="row">
+            <ng-container *ngFor="let score of scores">
+                <app-score-view class="col-md-4" [score]="score"></app-score-view>
+            </ng-container>
+        </div>
+    </ng-container>
+</section>

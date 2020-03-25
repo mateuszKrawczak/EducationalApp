@@ -21,6 +21,8 @@ import { CategoryLevelsViewComponent } from './Components/category-levels-view/c
 import { QuestionComponent } from './Components/question/question.component';
 import { AuthGuard } from './guards/auth.guard';
 import { EditorComponent } from './Components/editor/editor.component';
+import { ScoresComponent } from './Components/account/scores/scores.component';
+import { ScoreViewComponent } from './Components/account/score-view/score-view.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { EditorComponent } from './Components/editor/editor.component';
     CategoryLevelsComponent,
     CategoryLevelsViewComponent,
     QuestionComponent,
-    EditorComponent
+    EditorComponent,
+    ScoresComponent,
+    ScoreViewComponent
   ],
   imports: [
     BrowserModule,

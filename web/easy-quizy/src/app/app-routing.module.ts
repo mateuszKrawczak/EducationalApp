@@ -9,6 +9,7 @@ import { CategoryLevelsComponent } from './Components/category-levels/category-l
 import { QuestionComponent } from './Components/question/question.component';
 import { AuthGuard } from './guards/auth.guard';
 import { EditorComponent } from './Components/editor/editor.component';
+import { ScoresComponent } from './Components/account/scores/scores.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch:'full'},
@@ -16,7 +17,7 @@ const routes: Routes = [
   {path: 'signUp', component: SignUpComponent},
   {path: 'login', component: LoginComponent},
   {path: 'account', component: AccountMainComponent,canActivate:[AuthGuard]}, 
-  //{path: 'account', component: AccountMainComponent},
+  {path: 'account/scores', component: ScoresComponent,canActivate:[AuthGuard]},
   {path: 'categories', component: CategoriesComponent,canActivate:[AuthGuard]},
   {path: ':kategoria/poziomy', component: CategoryLevelsComponent,canActivate:[AuthGuard]}, 
   {path: ':kategoria/:poziom', component: QuestionComponent,canActivate:[AuthGuard]}, 

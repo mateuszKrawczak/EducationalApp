@@ -32,10 +32,8 @@ export class LoginComponent implements OnInit {
       this.storageService.setLogin(data.login);
       this.storageService.setUserId(data.user_id);
       this.toastr.success('Witamy');
-      this.authService.logged=true;
       this.router.navigate(['/categories']);
     }, error => {
-      
       this.toastr.error('Zły login lub hasło', 'Błąd :(');
     })
   }

@@ -1,6 +1,14 @@
 <section>
-  <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1 account">
-    <div class="title">Statystyki</div>
+  <div class="col-md-6 offset-md-3 col-sm-10 offset-sm-1 account">
+    <div class="logout">
+      <span (click)="logout()">Wyloguj</span>
+    </div>
+    <div class="title">
+      <a routerLink="/account/scores">Statystyki</a>
+    </div>
+    <ng-container *ngIf="user">
+      <p>Punkty: {{user.points}}</p>
+    </ng-container>
       <div class="title">Dane</div>
     <form (ngSubmit)="changeUserData()" [formGroup]="userForm">
       
@@ -62,7 +70,7 @@
       </div>
       <div class="input-box">
         <label for="password"> Hasło: </label>
-        <input name="password" type="text" formControlName="password" />
+        <input name="password" type="password" formControlName="password" />
       </div>
       <div class="warning-box">
         <ng-container
@@ -72,6 +80,9 @@
         >
           <span class="warning" *ngIf="userForm.get('password').errors.required"
             >Hasło nie może być puste</span
+          >
+          <span class="warning" *ngIf="userForm.get('password').errors.pattern"
+          >Hasło musi zawierać litery i liczby</span
           >
         </ng-container>
       </div>
