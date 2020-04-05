@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/Services/authService';
-import { StorageService } from 'src/app/Services/storageService';
+import { AuthService } from 'src/app/Services/auth.service';
+import { StorageService } from 'src/app/Services/storage.service';
 import { Router } from '@angular/router';
 
 @Component({

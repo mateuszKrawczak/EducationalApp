@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { StorageService } from 'src/app/Services/storageService';
-import { UserService } from 'src/app/Services/userService';
+import { StorageService } from 'src/app/Services/storage.service';
+import { UserService } from 'src/app/Services/user.service';
 import { User } from 'src/app/Models/user';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ToastrService } from 'ngx-toastr';

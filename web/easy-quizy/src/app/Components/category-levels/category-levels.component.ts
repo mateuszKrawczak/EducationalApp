@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Level } from 'src/app/Models/level';
-import { LevelService } from 'src/app/Services/levelService';
+import { LevelService } from 'src/app/Services/level.service';
 
 @Component({
   selector: 'app-category-levels',

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Level } from 'src/app/Models/level';
 import { Category } from 'src/app/Models/category';
-import { LevelService } from 'src/app/Services/levelService';
-import { CategoryService } from 'src/app/Services/categoryService';
-import { QuestionService } from 'src/app/Services/questionService';
+import { LevelService } from 'src/app/Services/level.service';
+import { CategoryService } from 'src/app/Services/category.service';
+import { QuestionService } from 'src/app/Services/question.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
