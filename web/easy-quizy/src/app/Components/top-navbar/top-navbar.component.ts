@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { StorageService } from 'src/app/Services/storageService';
+import { StorageService } from 'src/app/Services/storage.service';
 @Component({
   selector: 'app-top-navbar',
   templateUrl: './top-navbar.component.html',
@@ -19,6 +19,15 @@ export class TopNavbarComponent implements OnInit {
     }
     else{
       this.router.navigate(['/account']);
+    }
+    
+  }
+  homeRouting(){
+    if(!this.storageService.getLogin()){
+      this.router.navigate(['/home']);
+    }
+    else{
+      this.router.navigate(['/categories']);
     }
     
   }

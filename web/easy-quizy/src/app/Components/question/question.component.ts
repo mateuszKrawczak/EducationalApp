@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
-import { QuestionService } from "src/app/Services/questionService";
+import { QuestionService } from "src/app/Services/question.service";
 import { Question } from "src/app/Models/question";
-import { StorageService } from 'src/app/Services/storageService';
+import { StorageService } from 'src/app/Services/storage.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ScoreDialogComponent } from '../score-dialog/score-dialog.component';
 import { ScoreService } from 'src/app/Services/score.service';

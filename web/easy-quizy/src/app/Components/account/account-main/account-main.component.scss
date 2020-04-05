@@ -91,9 +91,13 @@ button:not(:disabled):hover {
 .logout {
     padding-top: 1em;
     font-size: 24px;
-    cursor: pointer;
+ 
 }
-
-.logout:hover {
-    color: #ddd;
+a{
+    color: black;
+}
+a:hover {
+    color: #bbb;
+    cursor: pointer;
+    text-decoration: none;
 }
