@@ -5,6 +5,7 @@ import { ReactiveFormsModule }    from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { EditorComponent } from './Components/editor/editor.component';
 import { ScoresComponent } from './Components/account/scores/scores.component';
 import { ScoreViewComponent } from './Components/account/score-view/score-view.component';
+import { ScoreDialogComponent } from './Components/score-dialog/score-dialog.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { ScoreViewComponent } from './Components/account/score-view/score-view.c
     QuestionComponent,
     EditorComponent,
     ScoresComponent,
-    ScoreViewComponent
+    ScoreViewComponent,
+    ScoreDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { ScoreViewComponent } from './Components/account/score-view/score-view.c
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

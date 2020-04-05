@@ -1,5 +1,5 @@
 export interface Level {
-    level_id: string,
+    level_id: number,
     name: string,
     points:number
 }

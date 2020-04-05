@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster|Roboto&display=swap');
-
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 $question: rgba(85, 159, 172, 0.95);
 $answer: #f7f3f3;
 $selected: #e2d16e;
@@ -20,3 +20,8 @@ body{
 html{
     height:auto;
 }
+html, body { min-height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+

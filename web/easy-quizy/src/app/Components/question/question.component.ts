@@ -3,6 +3,13 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { QuestionService } from "src/app/Services/questionService";
 import { Question } from "src/app/Models/question";
 import { StorageService } from 'src/app/Services/storageService';
+import { MatDialog } from '@angular/material/dialog';
+import { ScoreDialogComponent } from '../score-dialog/score-dialog.component';
+import { ScoreService } from 'src/app/Services/score.service';
+import { Score } from 'src/app/Models/score';
+import { User } from 'src/app/Models/user';
+import { Category } from 'src/app/Models/category';
+import { Level } from 'src/app/Models/level';
 @Component({
   selector: "app-question",
   templateUrl: "./question.component.html",
@@ -28,29 +35,38 @@ export class QuestionComponent implements OnInit {
   nextRound: boolean = false;
   buttonLabel: string = "Sprawdz!";
 
-  category;
+  category: string;
+  level: number;
 
   // staty użytkownika
 
-  goodAnswers: number = 0;
-  wrongAnswers: number = 0;
-  points: number = 0;
+  score: Score = {
+    points:0,
+    good_answers:0,
+    wrong_answers:0,
+    user: {} as User,
+    category: {} as Category,
+    level: {} as Level,
+  };
 
   constructor(
     private questionService: QuestionService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private storageService: StorageService
+    private storageService: StorageService,
+    public dialog:MatDialog,
+    private scoreService:ScoreService
   ) {}
 
   ngOnInit(): void {
-    this.category = this.activatedRoute.snapshot.url[0];
-    let level = this.activatedRoute.snapshot.url[1];
+    this.category = this.activatedRoute.snapshot.url[0].path;
+    this.level = +this.activatedRoute.snapshot.url[1].path;
 
-    this.questionService.getQuestions(this.category.path, level).subscribe(questions => {
+    this.questionService.getQuestions(this.category, this.level).subscribe(questions => {
       this.questions = questions;
       if(this.questions){
         this.currentQuestion = this.questions[this.currentIndex];
+        this.score.category.category_id = this.currentQuestion.category.category_id;
         this.setAnswers();
       }
     },e =>{console.error(e)});
@@ -76,13 +92,13 @@ export class QuestionComponent implements OnInit {
       if(this.currentQuestion.correct == this.selected){
         this.good = this.selected;
         this.wrong = -1;
-        this.goodAnswers++;
-        this.points += this.currentQuestion.level.points;
+        this.score.good_answers++;
+        this.score.points += this.currentQuestion.level.points;
       }
       else{
         this.wrong = this.selected;
         this.good = this.currentQuestion.correct;
-        this.wrongAnswers++;
+        this.score.wrong_answers++;
       }
       this.nextRound = true;
       this.buttonLabel = "Dalej !";
@@ -101,14 +117,10 @@ export class QuestionComponent implements OnInit {
         this.setAnswers();
       }
       else{
-        // tutaj będzie szedł request do bazy zapisaniem wyniku, narazie same logi
-        // musimy ustalić w sumie czy jeden poziom można robić tylko raz czy wiele
-        // bo wtedy muszę chyba pomyśleć jak to przechowywać w bazie (jeśli wiele)
-        console.log('Użytkownik: ' + this.storageService.getLogin());
-        console.log('Dobre odpowiedzi: ' + this.goodAnswers);
-        console.log('Złe odpowiedzi: ' + this.wrongAnswers);
-        console.log('Punkty: ' + this.points);
-        this.router.navigate([this.category.path,"poziomy"]);
+        this.score.user.user_id = +this.storageService.getUserId();
+        this.score.level.level_id = this.level;
+        this.scoreService.addScore(this.score).subscribe(data => {})
+        this.openDialog();
       }
     }
   }
@@ -118,6 +130,19 @@ export class QuestionComponent implements OnInit {
     if(index == this.good) return "answer good col-md-5";
     if(index == this.selected) return "answer selected col-md-5";
     return "answer col-md-5";
+  }
+
+  openDialog(){
+    const dialogRef = this.dialog.open(ScoreDialogComponent, {
+      width: '450px',
+      height: '450px',
+      autoFocus: true,
+      data: this.score
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.router.navigate([this.category,"poziomy"]);
+    });
   }
 
 }
