@@ -111,7 +111,7 @@ export class QuestionComponent implements OnInit {
       this.buttonLabel = "Sprawdź !";
       this.nextRound = false;
       this.questionsLeft--;
-      if(this.questionsLeft > 0 && this.questions.length > this.currentIndex-1) {
+      if(this.questionsLeft > 0 && this.questions.length > this.currentIndex+1) {
         this.currentQuestion = this.questions[++this.currentIndex];
         this.clearAnswers();
         this.setAnswers();
