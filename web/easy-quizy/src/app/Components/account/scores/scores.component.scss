@@ -10,3 +10,37 @@
     font-weight: normal;
   }
   
+  .input-box{
+    text-align: center;
+    padding: 16px;
+    color: black;
+    font-family: "Lobster", cursive;
+    font-size: 20px;
+    margin-bottom:30px;
+  }
+  .form-control{
+    display:inline-block;;
+    max-width:200px;
+    text-align: center;
+    color:black;
+    background-color: $yellowHover;
+    border:$yellow;
+    padding:0;
+    font-size:25px;
+    box-shadow: 0px 0px 4px  black;
+  }
+  .form-control:focus{
+    box-shadow: 0px 0px 4px  black;
+  }
+  .form-control:hover
+  {
+    cursor:pointer;
+    
+  }
+
+  label{
+    text-align:left;
+    max-width:200px;
+    width:100%;
+    font-size:25px;
+  }

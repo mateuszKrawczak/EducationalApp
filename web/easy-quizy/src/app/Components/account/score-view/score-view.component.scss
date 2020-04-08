@@ -1,7 +1,56 @@
-@import '../../../../styles.scss';
+@import "../../../../styles.scss";
 
+.title {
+  text-align: center;
+  padding: 1em;
+  color: black;
+  font-family: "Lobster", cursive;
+  font-size: 25px;
+  text-shadow: black;
+  font-weight: normal;
+}
 .score {
-    margin: 1em;
-    padding: 1em;
-    background-color: $lightBackground;
+  margin: auto;
+  margin-bottom:30px;
+  background-color: $lightBackground;
+  opacity: 0.9;
+  font-family: "Lobster";
+  border-radius: 1em;
+  color: black;
+  border:1px solid black;
+  font-size: 20px;
+  text-align: center;
+    max-width:380;
+max-height:380px;
+//width:100%;
+  box-shadow: 0px 0px 22px 4px rgba(0, 0, 0, 0.75);
+}
+
+.levelPhoto {
+  max-width: 180px;
+  max-height: 110px;
+  height: auto;
+  opacity: 0.9;
+}
+.photoContainer {
+  text-align: center;
+  padding: 1em;
+}
+
+.good-answers-icon {
+  color: green;
+}
+.wrong-answers-icon {
+  color: red;
+}
+p{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.score-answers-icon{
+    color:$question;
+}
+mat-icon{
+    margin-right:5px;
 }
