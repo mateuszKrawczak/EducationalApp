@@ -2,15 +2,16 @@
     <div class="title">Statystyki</div>
     <div class="input-box">
         <label for="categoryChoice">Wybierz kategorię:</label>
-        <select id="catgeoryChoice"><option *ngFor="let category of categories" (ngValue)='category.name' (click)="chooseCategory(category.name)">
+        <select id="catgeoryChoice" class="form-control"><option *ngFor="let category of categories" (ngValue)='category.name' (click)="chooseCategory(category.name)">
             {{category.name}}
         </option></select>
+    </div>
     <ng-container>
         <div class="row">
             <ng-container *ngFor="let score of scores" >
-                <app-score-view *ngIf="score.category.name==categoryToShow" class="col-md-4" [score]="score"></app-score-view>
+                <app-score-view *ngIf="score.category.name==categoryToShow" class="col-lg-4 col-sm-6" [score]="score"></app-score-view>
             </ng-container>
         </div>
     </ng-container>
-    </div>
+    
 </section>

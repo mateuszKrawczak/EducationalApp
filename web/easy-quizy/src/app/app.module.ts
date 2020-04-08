@@ -25,7 +25,7 @@ import { EditorComponent } from './Components/editor/editor.component';
 import { ScoresComponent } from './Components/account/scores/scores.component';
 import { ScoreViewComponent } from './Components/account/score-view/score-view.component';
 import { ScoreDialogComponent } from './Components/score-dialog/score-dialog.component';
-
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +53,8 @@ import { ScoreDialogComponent } from './Components/score-dialog/score-dialog.com
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

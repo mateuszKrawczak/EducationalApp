@@ -1,7 +1,9 @@
 <div class="score">
-    <p>Kategoria: {{ score.category.name }}</p>
-    <p>Poziom: {{ score.level.name }}</p>
-    <p>Wynik: {{ score.points }}</p>
-    <p>Poprawne odpowiedzi: {{ score.good_answers }}</p>
-    <p>Złe odpowiedzi: {{ score.wrong_answers }}</p>
+    <div class="title">{{ score.level.name | titlecase  }}</div>
+    <div class="photoContainer">
+        <img class="levelPhoto" src="../../../images/{{score.level.name}}.png">
+    </div>
+    <p><mat-icon class="score-answers-icon">info</mat-icon>Wynik: {{ score.points }}</p>
+    <p><mat-icon class="good-answers-icon">check</mat-icon>Poprawne odpowiedzi: {{ score.good_answers }}</p>
+    <p><mat-icon class="wrong-answers-icon">close</mat-icon>Złe odpowiedzi: {{ score.wrong_answers }}</p>
 </div>
