@@ -1,5 +1,7 @@
-<div class="title">Poziomy trudności</div>
-<article class="vertical-centered">
+
+<section class="container d-flex col-12 flex-column">
+  <div class="title">Poziomy trudności</div>
+<article>
   <div class="d-flex container-fluid col-lg-10 offset-lg-1 flex-column flex-md-row flex-wrap" >
     <ng-container *ngFor="let level of levels">
       <app-category-levels-view 
@@ -10,3 +12,4 @@
     </ng-container>
   </div>
 </article>
+</section>
