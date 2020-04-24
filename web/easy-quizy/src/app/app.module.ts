@@ -26,6 +26,7 @@ import { ScoresComponent } from './Components/account/scores/scores.component';
 import { ScoreViewComponent } from './Components/account/score-view/score-view.component';
 import { ScoreDialogComponent } from './Components/score-dialog/score-dialog.component';
 import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,8 @@ import {MatIconModule} from '@angular/material/icon';
     BrowserAnimationsModule,
     HttpClientModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

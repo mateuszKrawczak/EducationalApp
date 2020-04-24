@@ -1,9 +1,14 @@
 <section class="container">
     <ng-container *ngIf="currentQuestion">
-        <div class="row justify-content-center">
-            <div class="question col-md-11">
+        
+        <div class="row">
+            <div class="question col-md-11 d-flex align-items-center  justify-content-center">
                 <p>{{currentQuestion.question}}</p>
+                <div class="spinnerPosition">
+                <mat-spinner id="spinner" mode="determinate" strokeWidth="20" value="{{spinnerValue}}"></mat-spinner>
+                </div>
             </div>
+            
         </div>
         <div class="row justify-content-center">
             <ng-container *ngFor="let answer of answers; let i = index">
@@ -11,6 +16,7 @@
                     {{ answer }}
                 </div>
             </ng-container>
+            
         </div>
         <div class="btn-box">
             <button (click)="check()" class="btnCheck">{{buttonLabel}}</button>

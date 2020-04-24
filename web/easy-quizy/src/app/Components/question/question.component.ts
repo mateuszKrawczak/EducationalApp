@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { QuestionService } from "src/app/Services/question.service";
 import { Question } from "src/app/Models/question";
@@ -10,15 +10,23 @@ import { Score } from 'src/app/Models/score';
 import { User } from 'src/app/Models/user';
 import { Category } from 'src/app/Models/category';
 import { Level } from 'src/app/Models/level';
+import {MatProgressSpinner} from '@angular/material/progress-spinner';
+import { Subscription, Observable } from 'rxjs';
+import { interval } from 'rxjs';
 @Component({
   selector: "app-question",
   templateUrl: "./question.component.html",
   styleUrls: ["./question.component.scss"]
 })
-export class QuestionComponent implements OnInit {
+export class QuestionComponent implements OnInit,OnDestroy {
   
   questions: Array<Question>;
   currentQuestion: Question;
+
+  //timer pytania
+  spinnerValue:number = 100;
+  timerSubscription:Subscription;
+  secondsCounter = interval(1000);
 
   // obecnie pytanie
   currentIndex: number = 0;
@@ -57,6 +65,9 @@ export class QuestionComponent implements OnInit {
     public dialog:MatDialog,
     private scoreService:ScoreService
   ) {}
+  ngOnDestroy(): void {
+   this.timerSubscription.unsubscribe();
+  }
 
   ngOnInit(): void {
     this.category = this.activatedRoute.snapshot.url[0].path;
@@ -65,13 +76,31 @@ export class QuestionComponent implements OnInit {
     this.questionService.getQuestions(this.category, this.level).subscribe(questions => {
       this.questions = questions;
       if(this.questions){
-        this.currentQuestion = this.questions[this.currentIndex];
+        this.currentQuestion = this.questions[this.currentIndex]; 
         this.score.category.category_id = this.currentQuestion.category.category_id;
         this.setAnswers();
       }
     },e =>{console.error(e)});
+    this.timerSubscription = this.secondsCounter.subscribe(seconds =>{
+      if(this.spinnerValue!=0){
+        if(!this.nextRound){
+          this.timerTick();
+        }
+        
+      }
+      else{
+        
+        this.openDialog();
+       
+      }
+    });
+    
+    
   }
-
+  timerTick(){
+    this.spinnerValue-=5;
+    
+  }
   setAnswers(){
     this.answers.push(this.currentQuestion.answer_0);
     this.answers.push(this.currentQuestion.answer_1);
@@ -102,9 +131,13 @@ export class QuestionComponent implements OnInit {
       }
       this.nextRound = true;
       this.buttonLabel = "Dalej !";
+      
     }
     else{
       // na kolejną rundę
+
+      this.spinnerValue =100;
+
       this.selected = -1;
       this.wrong = -1;
       this.good = -1;
@@ -133,6 +166,7 @@ export class QuestionComponent implements OnInit {
   }
 
   openDialog(){
+    this.timerSubscription.unsubscribe();
     const dialogRef = this.dialog.open(ScoreDialogComponent, {
       width: '450px',
       height: '450px',

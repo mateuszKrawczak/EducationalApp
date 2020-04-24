@@ -3,6 +3,7 @@
 p {
     margin: 0;
     padding: 0;
+    max-width:60%;
 }
 
 .container {
@@ -29,6 +30,8 @@ p {
 
 .question {
     background-color: $question;
+    
+    height:150px;
 }
 
 .answer {
@@ -100,4 +103,14 @@ button:hover {
     100% {
         opacity: 1;
     }
+}
+
+:host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {   
+    stroke: #0CC20C;
+}
+
+.spinnerPosition{
+    position: absolute;
+    //top:20px;
+    right:20px;
 }
