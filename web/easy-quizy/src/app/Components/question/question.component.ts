@@ -79,22 +79,20 @@ export class QuestionComponent implements OnInit {
         this.setAnswers();
       }
     },e =>{console.error(e)});
+    
     this.timerSubscription = this.secondsCounter.subscribe(seconds =>{
       if(this.spinnerValue!=0){
         if(!this.nextRound){
           this.timerTick();
         }
-        
       }
       else{
-        
-        this.openDialog();
-       
+        this.check();
       }
     });
     
-    
   }
+
   timerTick(){
     this.spinnerValue-=5;
     

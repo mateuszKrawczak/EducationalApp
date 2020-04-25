@@ -13,31 +13,26 @@ import { Router } from '@angular/router';
 })
 export class AccountMainComponent implements OnInit {
 
-  public userForm :FormGroup;
+  userForm :FormGroup;
   user:User ;
   private id;
+
   constructor(private toastrService:ToastrService, private storageService : StorageService, 
       private userService:UserService, private fb:FormBuilder, private router:Router) {}
 
   ngOnInit(): void {
-    
     this.getUserData();
-    
   }
 
   getUserData(){
     this.id = this.storageService.getUserId();
     this.userService.getUser(this.id).subscribe((currentUser) => {
       this.user = currentUser;
-      //console.log(currentUser);
       this.updateForm();
     });
-    
-    
   }
   
   updateForm(){
-
     const passwordPattern = '^(?=.*[0-9])(?=.*[a-z]).{6,40}$';
 
     this.userForm = this.fb.group({
@@ -52,13 +47,12 @@ export class AccountMainComponent implements OnInit {
   public changeUserData(){
    
     if(this.userForm.valid){
-        this.userService.changeUserData(this.userForm.value,this.id).subscribe((editedUser)=>{
-          this.user = editedUser;
-          //this.updateForm();
-          this.toastrService.success('Konto zostało zaktualizowane', 'Miłej gry!');
-    }, error => {
-      this.toastrService.success('Błąd');
-    })
+      this.userService.changeUserData(this.userForm.value,this.id).subscribe((editedUser)=>{
+        this.user = editedUser;
+        this.toastrService.success('Konto zostało zaktualizowane', 'Miłej gry!');
+      }, error => {
+        this.toastrService.success('Błąd');
+      })
     }
 
   }
