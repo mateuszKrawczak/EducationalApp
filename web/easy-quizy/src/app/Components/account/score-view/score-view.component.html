@@ -1,9 +1,9 @@
 <div class="score">
-    <div class="title">{{ score.level.name | titlecase  }}</div>
+    <div class="title">{{ score.level | titlecase  }}</div>
     <div class="photoContainer">
-        <img class="levelPhoto" src="../../../images/{{score.level.name}}.png">
+        <img class="levelPhoto" src="../../../images/{{score.level}}.png">
     </div>
-    <p><mat-icon class="score-answers-icon">info</mat-icon>Wynik: {{ score.points }}</p>
+    <p><mat-icon class="score-answers-icon">info</mat-icon>Średni wynik: {{ score.points | number }} / {{maxScore}}</p>
     <p><mat-icon class="good-answers-icon">check</mat-icon>Poprawne odpowiedzi: {{ score.good_answers }}</p>
     <p><mat-icon class="wrong-answers-icon">close</mat-icon>Złe odpowiedzi: {{ score.wrong_answers }}</p>
 </div>

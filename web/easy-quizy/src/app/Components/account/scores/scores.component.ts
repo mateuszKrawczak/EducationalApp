@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/Services/user.service';
-import { Score } from 'src/app/Models/score';
 import { StorageService } from 'src/app/Services/storage.service';
 import { CategoryService } from 'src/app/Services/category.service';
-import { CategoryLevelsViewComponent } from '../../category-levels-view/category-levels-view.component';
 import { Category } from 'src/app/Models/category';
+import { ScoreAverage } from 'src/app/Models/score-average';
 
 @Component({
   selector: 'app-scores',
@@ -13,35 +12,27 @@ import { Category } from 'src/app/Models/category';
 })
 export class ScoresComponent implements OnInit {
 
-
-  scores: Array<Score>;
+  scores: Array<ScoreAverage>;
   id: number;
   categories: Array<Category>;
-  categoryScores:Array<Score>;
   categoryToShow;
-  constructor(private userService:UserService, private storageService:StorageService, private categoryService:CategoryService) { 
-    
-  }
+  
+  constructor(private userService:UserService, private storageService:StorageService, private categoryService:CategoryService) {}
 
   ngOnInit(): void {
     
     this.id = +this.storageService.getUserId();
 
-    this.userService.getUserScores(this.id).subscribe(data => {
+    this.userService.getUserAverageScores(this.id).subscribe(data => {
       this.scores = data;
+      console.log(this.scores);
     })
 
     this.categoryService.getCategories().subscribe(data => {
       this.categories = data;
-      this.chooseCategory(this.categories[0].name);
+      this.categoryToShow = this.categories[0].name;
     })
 
-  }
-  chooseCategory(name){
-
-    this.categoryToShow=name;
-
-    
   }
 
 }

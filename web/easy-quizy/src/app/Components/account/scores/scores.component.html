@@ -2,14 +2,16 @@
     <div class="title">Statystyki</div>
     <div class="input-box">
         <label for="categoryChoice">Wybierz kategorię:</label>
-        <select id="catgeoryChoice" class="form-control"><option *ngFor="let category of categories" (ngValue)='category.name' (click)="chooseCategory(category.name)">
-            {{category.name}}
-        </option></select>
+        <select id="catgeoryChoice" class="form-control" [(ngModel)]="categoryToShow">
+            <option *ngFor="let category of categories" [ngValue]='category.name'>
+                {{category.name}}
+            </option>
+        </select>
     </div>
     <ng-container>
         <div class="row d-flex container col-lg-10 offset-lg-1 col-12 offset-md-0">
             <ng-container *ngFor="let score of scores" >
-                <app-score-view  *ngIf="score.category.name==categoryToShow" class="col-lg-3 col-md-6" [score]="score"></app-score-view>
+                <app-score-view  *ngIf="score.category==categoryToShow" class="col-lg-4 col-md-6" [score]="score"></app-score-view>
             </ng-container>
         </div>
     </ng-container>

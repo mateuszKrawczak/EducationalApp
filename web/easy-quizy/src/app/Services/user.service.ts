@@ -4,6 +4,7 @@ import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
 import { User } from '../Models/user';
 import { Score } from '../Models/score';
+import { ScoreAverage } from '../Models/score-average';
 @Injectable({
     providedIn: 'root'
 })
@@ -20,6 +21,10 @@ export class UserService {
 
     getUserScores(id):Observable<Array<Score>>{
         return this.http.get<Array<Score>>(this.host+`api/users/${id}/scores`);
+    }
+
+    getUserAverageScores(id):Observable<Array<ScoreAverage>>{
+        return this.http.get<Array<ScoreAverage>>(this.host+`api/users/${id}/scores/average`);
     }
 
     changeUserData(user:User,id):Observable<User>{

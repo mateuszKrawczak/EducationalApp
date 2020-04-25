@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Score } from 'src/app/Models/score';
-import {MatIconModule} from '@angular/material/icon';
+import { ScoreAverage } from 'src/app/Models/score-average';
 @Component({
   selector: 'app-score-view',
   templateUrl: './score-view.component.html',
@@ -8,11 +7,24 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class ScoreViewComponent implements OnInit {
 
-  @Input() score:Score;
+  @Input() score:ScoreAverage;
+
+  maxScore: number;
 
   constructor() { }
 
   ngOnInit(): void {
+    switch(this.score.level){
+      case 'junior':
+        this.maxScore = 50;
+        break;
+      case 'senior':
+        this.maxScore = 125;
+        break;
+      case 'ekspert':
+        this.maxScore = 250;
+        break;
+    }
   }
 
 }
