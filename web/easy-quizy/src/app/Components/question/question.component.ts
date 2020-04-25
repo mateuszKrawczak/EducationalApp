@@ -18,7 +18,7 @@ import { interval } from 'rxjs';
   templateUrl: "./question.component.html",
   styleUrls: ["./question.component.scss"]
 })
-export class QuestionComponent implements OnInit,OnDestroy {
+export class QuestionComponent implements OnInit {
   
   questions: Array<Question>;
   currentQuestion: Question;
@@ -65,9 +65,7 @@ export class QuestionComponent implements OnInit,OnDestroy {
     public dialog:MatDialog,
     private scoreService:ScoreService
   ) {}
-  ngOnDestroy(): void {
-   this.timerSubscription.unsubscribe();
-  }
+  
 
   ngOnInit(): void {
     this.category = this.activatedRoute.snapshot.url[0].path;
