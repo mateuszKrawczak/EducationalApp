@@ -15,6 +15,10 @@ export class UserService {
 
     host:string = environment.host;
 
+    getUsers():Observable<Array<User>>{
+        return this.http.get<Array<User>>(this.host + "api/users");
+    }
+
     getUser(id):Observable<User>{
         return this.http.get<User>(this.host+"api/users/"+id);
     }
@@ -29,6 +33,5 @@ export class UserService {
 
     changeUserData(user:User,id):Observable<User>{
         return this.http.put<User>(this.host+"api/users/"+id, user);
-
     }
 }

@@ -1,0 +1,18 @@
+<div class="title">Ranking</div>
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <section>
+            <p>Lp.</p>
+            <p>Użytkownik</p>
+            <p>Punkty</p>
+        </section>
+    </div>
+</div>
+
+<div class="row">
+    <ng-container *ngFor="let user of users; let i = index">
+        <app-ranking-user-view class="col-md-4 offset-md-4" [place]="i+1" [user]="user"></app-ranking-user-view>
+    </ng-container>
+</div>
+

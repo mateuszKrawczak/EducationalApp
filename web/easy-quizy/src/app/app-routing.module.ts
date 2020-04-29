@@ -10,18 +10,20 @@ import { QuestionComponent } from './Components/question/question.component';
 import { AuthGuard } from './guards/auth.guard';
 import { EditorComponent } from './Components/editor/editor.component';
 import { ScoresComponent } from './Components/account/scores/scores.component';
+import { RankingComponent } from './Components/ranking/ranking.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch:'full'},
   {path: 'home', component: MainContentComponent},
   {path: 'signUp', component: SignUpComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'account', component: AccountMainComponent,canActivate:[AuthGuard]}, 
-  {path: 'account/scores', component: ScoresComponent,canActivate:[AuthGuard]},
-  {path: 'categories', component: CategoriesComponent,canActivate:[AuthGuard]},
-  {path: ':kategoria/poziomy', component: CategoryLevelsComponent,canActivate:[AuthGuard]}, 
-  {path: ':kategoria/:poziom', component: QuestionComponent,canActivate:[AuthGuard]}, 
-  {path: 'edytor', component:EditorComponent}
+  {path: 'ranking', component: RankingComponent, canActivate:[AuthGuard]},
+  {path: 'account', component: AccountMainComponent, canActivate:[AuthGuard]}, 
+  {path: 'account/scores', component: ScoresComponent, canActivate:[AuthGuard]},
+  {path: 'categories', component: CategoriesComponent, canActivate:[AuthGuard]},
+  {path: ':kategoria/poziomy', component: CategoryLevelsComponent, canActivate:[AuthGuard]}, 
+  {path: ':kategoria/:poziom', component: QuestionComponent, canActivate:[AuthGuard]}, 
+  {path: 'edytor', component:EditorComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({

@@ -13,22 +13,6 @@ export class TopNavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  accountRouting(){
-    if(!this.storageService.getLogin()){
-      this.router.navigate(['/login']);
-    }
-    else{
-      this.router.navigate(['/account']);
-    }
-    
-  }
-  homeRouting(){
-    if(!this.storageService.getLogin()){
-      this.router.navigate(['/home']);
-    }
-    else{
-      this.router.navigate(['/categories']);
-    }
-    
-  }
+  // te funkcje były zbędne jak używamy AuthGuard
+
 }

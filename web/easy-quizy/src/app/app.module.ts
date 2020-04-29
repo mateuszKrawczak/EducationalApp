@@ -27,6 +27,8 @@ import { ScoreViewComponent } from './Components/account/score-view/score-view.c
 import { ScoreDialogComponent } from './Components/score-dialog/score-dialog.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { RankingComponent } from './Components/ranking/ranking.component';
+import { RankingUserViewComponent } from './Components/ranking-user-view/ranking-user-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +46,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     EditorComponent,
     ScoresComponent,
     ScoreViewComponent,
-    ScoreDialogComponent
+    ScoreDialogComponent,
+    RankingComponent,
+    RankingUserViewComponent
   ],
   imports: [
     BrowserModule,

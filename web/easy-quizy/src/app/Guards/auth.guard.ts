@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { StorageService } from '../Services/storage.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { StorageService } from '../Services/storage.service';
 export class AuthGuard implements CanActivate {
 
 
-  constructor(private storageService:StorageService,private router:Router){
+  constructor(private storageService:StorageService,private router:Router, private toastrService:ToastrService){
 
   }
   canActivate(): boolean {
@@ -16,7 +17,8 @@ export class AuthGuard implements CanActivate {
      return true;
    }
 
-   this.router.navigate(["login"]);
+   this.toastrService.info('Musisz się zalogować');
+   this.router.navigate(["/login"]);
    return false;
   }
   

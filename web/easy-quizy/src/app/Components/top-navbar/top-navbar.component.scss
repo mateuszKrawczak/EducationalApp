@@ -44,3 +44,14 @@
 .navbar-light .navbar-nav .nav-link{
     color:black;
 }
+
+.nav-item-inline {
+    font-family: 'Roboto', cursive;
+    font-size:28px;
+    padding-right: 1em;
+}
+
+.nav-item-inline .nav-link:hover {
+    color: #aaa !important;
+    cursor: pointer;
+}
