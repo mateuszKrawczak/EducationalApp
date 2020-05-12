@@ -30,12 +30,12 @@ p {
 
 .question {
     background-color: $question;
-    
     height:150px;
 }
 
 .answer {
     background-color: $answer;
+    width: 100%;
     cursor: pointer;
     transition: 0.25s;
     color: black;

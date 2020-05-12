@@ -2,7 +2,7 @@
     <ng-container *ngIf="currentQuestion">
         
         <div class="row">
-            <div class="question col-md-11 d-flex align-items-center  justify-content-center">
+            <div class="question col-md-12 d-flex align-items-center justify-content-center">
                 <p>{{currentQuestion.question}}</p>
                 <div class="spinnerPosition">
                 <mat-spinner id="spinner" mode="determinate" strokeWidth="20" value="{{spinnerValue}}"></mat-spinner>
@@ -12,8 +12,10 @@
         </div>
         <div class="row justify-content-center">
             <ng-container *ngFor="let answer of answers; let i = index">
-                <div (click)="select(i)" [ngClass]="getAnswerClass(i)" class="answer col-md-5">
-                    {{ answer }}
+                <div class="col-md-6">
+                    <div (click)="select(i)" [ngClass]="getAnswerClass(i)" class="answer">
+                        {{ answer }}
+                    </div>
                 </div>
             </ng-container>
             

@@ -155,10 +155,10 @@ export class QuestionComponent implements OnInit {
   }
 
   getAnswerClass(index: number){
-    if(index == this.wrong) return "answer wrong col-md-5";
-    if(index == this.good) return "answer good col-md-5";
-    if(index == this.selected) return "answer selected col-md-5";
-    return "answer col-md-5";
+    if(index == this.wrong) return "answer wrong";
+    if(index == this.good) return "answer good";
+    if(index == this.selected) return "answer selected";
+    return "answer";
   }
 
   openDialog(){
