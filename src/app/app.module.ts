@@ -20,7 +20,7 @@ import { CategoryViewComponent } from './Components/category-view/category-view.
 import { CategoryLevelsComponent } from './Components/category-levels/category-levels.component';
 import { CategoryLevelsViewComponent } from './Components/category-levels-view/category-levels-view.component';
 import { QuestionComponent } from './Components/question/question.component';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './Guards/auth.guard';
 import { EditorComponent } from './Components/editor/editor.component';
 import { ScoresComponent } from './Components/account/scores/scores.component';
 import { ScoreViewComponent } from './Components/account/score-view/score-view.component';
