@@ -7,7 +7,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { CategoriesComponent } from './Components/categories/categories.component';
 import { CategoryLevelsComponent } from './Components/category-levels/category-levels.component';
 import { QuestionComponent } from './Components/question/question.component';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './Guards/auth.guard';
 import { EditorComponent } from './Components/editor/editor.component';
 import { ScoresComponent } from './Components/account/scores/scores.component';
 import { RankingComponent } from './Components/ranking/ranking.component';
